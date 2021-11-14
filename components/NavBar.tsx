@@ -1,8 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { MenuIcon, XIcon, ScissorsIcon } from '@heroicons/react/outline'
 import MyLink from './MyLink'
-
 const navigation = [
   { name: 'Forside', href: '/' },
   { name: 'Produkter', href: '/produkter' },
@@ -29,18 +28,10 @@ const NavBar = () => {
               </div>
               <div className="flex-1 flex items-center justify-center h-full sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    alt="Workflow"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                    alt="Workflow"
-                  />
+                  <ScissorsIcon height={35} className="text-primary mr-3" />
+                  <h1 className="text-lg text-gray-600">Kreativ Familie Hobby</h1>
                 </div>
-                <div className="hidden sm:block sm:ml-6">
+                <div className="hidden sm:block ml-auto">
                   <div className="flex space-x-4 h-full">
                     {navigation.map((item) => (
                       <MyLink
