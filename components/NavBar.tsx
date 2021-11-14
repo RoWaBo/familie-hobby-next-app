@@ -27,15 +27,17 @@ const NavBar = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center h-full sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
-                  <ScissorsIcon height={35} className="text-primary mr-3" />
-                  <h1 className="text-lg text-gray-600">Kreativ Familie Hobby</h1>
+                <div className="flex-shrink-0 flex items-center h-full">
+                  <MyLink href="/" className="border-none h-full">
+                    <ScissorsIcon height={35} className="text-primary mr-3" />
+                    <h1 className="text-lg text-gray-600">Kreativ Familie Hobby</h1>
+                  </MyLink>
                 </div>
                 <div className="hidden sm:block ml-auto">
                   <div className="flex space-x-4 h-full">
-                    {navigation.map((item) => (
+                    {navigation.map((item, index) => (
                       <MyLink
-                        key={item.name}
+                        key={index}
                         href={item.href}
                       >
                         {item.name}
@@ -49,9 +51,12 @@ const NavBar = () => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <Disclosure.Button className="flex w-full">
-                  <MyLink key={item.name} href={item.href}>
+              {navigation.map((item, index) => (
+                <Disclosure.Button key={index} className="flex w-full">
+                  <MyLink
+                    href={item.href}
+                    className="border-none"
+                  >
                     {item.name}
                   </MyLink>
                 </Disclosure.Button>
