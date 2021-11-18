@@ -49,6 +49,7 @@ const NavBar = () => {
             </div>
           </div>
 
+          {/* Mobile menu */}
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item, index) => (
