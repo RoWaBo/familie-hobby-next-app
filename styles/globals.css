@@ -18,3 +18,19 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@layer base {
+  h1 {
+    @apply text-xl font-medium text-gray-900
+  }
+  h2, h3, h4 {
+    @apply text-lg font-medium text-gray-900
+  }
+  p {
+    @apply text-gray-600 text-sm    
+  }
+  /* ul {
+    @apply list-disc 
+  } */
+
+}
