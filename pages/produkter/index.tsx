@@ -31,7 +31,7 @@ const Products: React.FunctionComponent<ProductsProps> = ({
       <div className="max-w-2xl mx-auto py-9 px-4  sm:py-15 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
-            <article key={product.sys.id} className="shadow rounded-md">
+            <article key={product.sys.id} className="shadow rounded-md hover:shadow-lg transition-shadow">
               <Link
                 href={`/produkter/${product.sys.id}`}
               >
