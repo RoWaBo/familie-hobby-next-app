@@ -32,20 +32,17 @@ const Products: React.FunctionComponent<ProductsProps> = ({
       <div className="max-w-2xl mx-auto py-9 px-4  sm:py-15 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="grid justify-items-center grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
-            <article key={product.sys.id} className="shadow rounded-md hover:shadow-lg transition-shadow width-300px xl:w-72">
+            <article key={product.sys.id} className="shadow rounded-md hover:shadow-lg transition-shadow pb-1">
               <Link href={`/produkter/${product.sys.id}`}>
                 <a>
-                  <div className="relative width-300px height-300px xl:w-72 xl:h-72 bg-gray-200 rounded-t-lg overflow-hidden">
+                  <div className="relative w-full h-80 xl:h-72 bg-gray-200 rounded-t-lg overflow-hidden">
                     <Image
                       src={'https:' + product.fields.billede.fields.file.url}
                       alt={product.fields.billede.fields.title}
                       layout='fill'
+                      quality='10'
+                      className="object-center object-cover"
                     />
-                    {/* <img
-                      src={product.fields.billede.fields.file.url}
-                      alt={product.fields.billede.fields.title}
-                      className="w-full h-full object-center object-cover group-hover:opacity-75"
-                    /> */}
                   </div>
                   <div className="px-4 pb-4">
                     <div className="flex items-center mt-4">
