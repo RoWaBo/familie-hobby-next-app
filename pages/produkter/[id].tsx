@@ -17,22 +17,23 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
   return router.isFallback ? (
     <h1>loading...</h1>
   ) : (
-    <MainLayout>
-      <div className="relative w-full h-[400px] bg-gray-200 rounded-lg overflow-hidden">
+    <MainLayout className="flex justify-center sm:block">
+      <div className="relative w-96 sm:w-full h-96 bg-gray-200 rounded-lg overflow-hidden">
         <Image
           src={"https:" + product.fields.billede.fields.file.url}
           alt={product.fields.billede.fields.title}
           layout="fill"
           quality="10"
-          className="object-center object-cover"
+          className="object-center object-cover rounded-lg blur-lg"
         />
-        <div className="relative m-auto w-96 h-96 bg-gray-200 rounded-lg overflow-hidden">
+        <div className="relative m-auto w-96 h-96 bg-gray-200 rounded-lg">
           <Image
             src={"https:" + product.fields.billede.fields.file.url}
             alt={product.fields.billede.fields.title}
             layout="fill"
-            quality="10"
-            className="object-center object-cover"
+            quality="20"
+            className="object-center object-cover rounded-lg"
+            priority
           />
         </div>
       </div>
