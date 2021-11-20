@@ -1,6 +1,7 @@
 import { createClient, Entry } from 'contentful';
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/dist/client/router';
+import MainLayout from '../../components/MainLayout';
 import Product from '../../types/Product';
 
 interface ProductProps {
@@ -16,7 +17,9 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
     return router.isFallback ? ( 
         <h1>loading...</h1>
      ) : (
+      <MainLayout>
          <h1>Everything is fine</h1>
+      </MainLayout>   
      )
 }
 
