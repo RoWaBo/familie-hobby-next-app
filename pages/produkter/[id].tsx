@@ -18,20 +18,21 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
     <h1>loading...</h1>
   ) : (
     <MainLayout className="flex justify-center sm:block">
-      <div className="relative w-96 sm:w-full h-96 bg-gray-200 rounded-lg overflow-hidden">
+      <div className="relative w-full h-[400px] bg-gray-200 rounded-lg">
         <Image
           src={"https:" + product.fields.billede.fields.file.url}
           alt={product.fields.billede.fields.title}
           layout="fill"
-          quality="10"
-          className="object-center object-cover rounded-lg blur-lg"
+          quality={1}
+          className="object-center object-cover rounded-lg blur-md hidden sm:absolute"
         />
-        <div className="relative m-auto w-96 h-96 bg-gray-200 rounded-lg">
+
+        <div className="relative m-auto w-full sm:top-3 sm:w-[400px] h-[400px] bg-gray-200 rounded-lg shadow-lg">
           <Image
             src={"https:" + product.fields.billede.fields.file.url}
             alt={product.fields.billede.fields.title}
             layout="fill"
-            quality="20"
+            quality={20}
             className="object-center object-cover rounded-lg"
             priority
           />
