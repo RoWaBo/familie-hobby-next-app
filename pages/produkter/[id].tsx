@@ -41,9 +41,14 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
           </div>
         </div>
         <div className="max-w-xl m-auto">
-          <h1 className="mt-7 mb-4 sm:mt-14 capitalize text-2xl sm:text-3xl">
-            {product.fields.overskrift}
-          </h1>
+          <div className="flex items-baseline">
+            <h1 className="mt-7 mb-4 sm:mt-14 capitalize text-2xl sm:text-3xl">
+              {product.fields.overskrift}
+            </h1>
+            <p className="ml-auto text-gray-500">
+              {product.sys.createdAt.substring(0, 10)}
+            </p>
+          </div>
           <FormatRichText>{product.fields.beskrivelse}</FormatRichText>
         </div>
       </article>
