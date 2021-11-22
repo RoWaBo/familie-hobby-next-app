@@ -37,10 +37,10 @@ a {
 }
 
 @layer utilities {
-  .width-300px {
-    width: 300px;
+  .format-rich-text h2 {
+      @apply text-lg mt-5
   }
-  .height-300px {
-    height: 300px;
+  .format-rich-text p {
+      @apply mt-1 text-base
   }
 }

@@ -13,7 +13,7 @@ const FormatRichText: React.FC<FormatRichTextProps> = ({ textLimit, className, c
     // const cleanedHTML = DOMPurify.sanitize(description)
 
     return ( 
-        <div className={className}
+        <div className={`${className} format-rich-text`}
             dangerouslySetInnerHTML={
                 {
                 __html: marked(description)
