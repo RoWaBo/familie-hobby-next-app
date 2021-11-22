@@ -4,6 +4,7 @@ import { useRouter } from "next/dist/client/router";
 import MainLayout from "../../components/MainLayout";
 import Product from "../../types/Product";
 import Image from "next/image";
+import FormatRichText from "../../components/FormatRichText";
 
 interface ProductProps {
   product: Entry<Product>;
@@ -17,27 +18,35 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
   return router.isFallback ? (
     <h1>loading...</h1>
   ) : (
-    <MainLayout className="flex justify-center sm:block">
-      <div className="relative w-full h-[400px] bg-gray-200 rounded-lg">
-        <Image
-          src={"https:" + product.fields.billede.fields.file.url}
-          alt={product.fields.billede.fields.title}
-          layout="fill"
-          quality={1}
-          className="object-center object-cover rounded-lg blur-md hidden sm:absolute"
-        />
-
-        <div className="relative m-auto w-full sm:top-3 sm:w-[400px] h-[400px] bg-gray-200 rounded-lg shadow-lg">
+    <MainLayout>
+      <article>
+        <div className="relative w-full xsm:h-[400px] h-80 bg-gray-200 rounded-lg">
           <Image
             src={"https:" + product.fields.billede.fields.file.url}
             alt={product.fields.billede.fields.title}
             layout="fill"
-            quality={20}
-            className="object-center object-cover rounded-lg"
-            priority
+            quality={1}
+            className="object-center object-cover rounded-lg blur-md hidden sm:absolute opacity-60"
           />
+
+          <div className="relative m-auto w-full sm:top-4 sm:w-[400px] xsm:h-[400px] h-full bg-gray-200 rounded-lg shadow-lg">
+            <Image
+              src={"https:" + product.fields.billede.fields.file.url}
+              alt={product.fields.billede.fields.title}
+              layout="fill"
+              quality={20}
+              className="object-center object-cover rounded-lg"
+              priority
+            />
+          </div>
         </div>
-      </div>
+        <div className="max-w-xl m-auto">
+          <h1 className="mt-7 mb-4 sm:mt-14 capitalize text-2xl sm:text-3xl">
+            {product.fields.overskrift}
+          </h1>
+          <FormatRichText>{product.fields.beskrivelse}</FormatRichText>
+        </div>
+      </article>
     </MainLayout>
   );
 };
