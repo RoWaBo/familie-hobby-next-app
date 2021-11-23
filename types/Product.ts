@@ -5,4 +5,5 @@ export default interface Product {
     billede: Asset
     overskrift: string
     type: string
+    infotekstbox?: string
 }
