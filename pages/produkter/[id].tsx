@@ -13,8 +13,6 @@ interface ProductProps {
 const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
   const router = useRouter();
 
-  console.log(product);
-
   return router.isFallback ? (
     <h1>loading...</h1>
   ) : (
@@ -26,7 +24,7 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
             alt={product.fields.billede.fields.title}
             layout="fill"
             quality={1}
-            className="object-center object-cover rounded-lg blur-md hidden sm:absolute opacity-60"
+            className="object-center object-cover rounded-lg blur-md opacity-60"
           />
 
           <div className="relative m-auto w-full sm:top-4 sm:w-[400px] xsm:h-[400px] h-full bg-gray-200 rounded-lg shadow-lg">
@@ -50,6 +48,11 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
             </p>
           </div>
           <FormatRichText>{product.fields.beskrivelse}</FormatRichText>
+          {product.fields.infotekstbox && (
+            <div className="bg-purple-300 p-4 rounded-md mt-10 w-fit font-medium">
+              <FormatRichText className="">{product.fields.infotekstbox}</FormatRichText>
+            </div>
+          )}
         </div>
       </article>
     </MainLayout>
