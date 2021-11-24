@@ -49,8 +49,10 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
           </div>
           <FormatRichText>{product.fields.beskrivelse}</FormatRichText>
           {product.fields.infotekstbox && (
-            <div className="bg-purple-300 p-4 rounded-md mt-10 w-fit font-medium">
-              <FormatRichText className="">{product.fields.infotekstbox}</FormatRichText>
+            <div className="bg-purple-100 p-4 rounded-md mt-10 w-fit font-medium">
+              <FormatRichText className="">
+                {product.fields.infotekstbox}
+              </FormatRichText>
             </div>
           )}
         </div>
@@ -60,40 +62,60 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_TOKEN,
-  });
+  if (
+    typeof process.env.CONTENTFUL_SPACE_ID !== "undefined" &&
+    typeof process.env.CONTENTFUL_TOKEN !== "undefined"
+  ) {
+    const client = createClient({
+      space: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_TOKEN,
+    });
 
-  const contentfulEntires = await client.getEntries();
+    const contentfulEntires = await client.getEntries();
 
-  const products = contentfulEntires.items.filter(
-    (item) => item.sys.contentType.sys.id === "product"
-  );
+    const products = contentfulEntires.items.filter(
+      (item) => item.sys.contentType.sys.id === "product"
+    );
 
-  const paths = products.map((product) => ({
-    params: { id: product.sys.id },
-  }));
-
+    const paths = products.map((product) => ({
+      params: { id: product.sys.id },
+    }));
+    
+    return {
+      paths,
+      fallback: true,
+    };
+  }
   return {
-    paths,
-    fallback: true,
+    paths: [
+      { params: { id: "not found" } },
+    ],
+    fallback: false
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_TOKEN,
-  });
+  if (
+    typeof process.env.CONTENTFUL_SPACE_ID !== "undefined" &&
+    typeof process.env.CONTENTFUL_TOKEN !== "undefined" &&
+    typeof params?.id === "string"
+  ) {
+    const client = createClient({
+      space: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_TOKEN,
+    });
 
-  const product = await client.getEntry(params?.id);
+    const product = await client.getEntry(params.id);
 
+    return {
+      props: {
+        product,
+      },
+      revalidate: 10,
+    };
+  }
   return {
-    props: {
-      product,
-    },
-    revalidate: 10,
+    notFound: true,
   };
 };
 
