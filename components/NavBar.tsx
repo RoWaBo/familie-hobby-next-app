@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon, ScissorsIcon } from '@heroicons/react/outline'
-import MyLink from './MyLink'
+import NavLink from './NavLink'
 const navigation = [
   { name: 'Forside', href: '/' },
   { name: 'Produkter', href: '/produkter' },
@@ -28,20 +28,20 @@ const NavBar = () => {
               </div>
               <div className="flex-1 flex items-center justify-center h-full sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center h-full">
-                  <MyLink href="/" className="border-none h-full">
+                  <NavLink href="/" className="border-none h-full">
                     <ScissorsIcon height={35} className="text-primary mr-3" />
                     <h1 className="text-lg text-gray-600">Kreativ Familie Hobby</h1>
-                  </MyLink>
+                  </NavLink>
                 </div>
                 <div className="hidden sm:block ml-auto">
                   <div className="flex space-x-4 h-full">
                     {navigation.map((item, index) => (
-                      <MyLink
+                      <NavLink
                         key={index}
                         href={item.href}
                       >
                         {item.name}
-                      </MyLink>
+                      </NavLink>
                     ))}
                   </div>
                 </div>
@@ -54,12 +54,12 @@ const NavBar = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item, index) => (
                 <Disclosure.Button key={index} className="flex w-full">
-                  <MyLink
+                  <NavLink
                     href={item.href}
                     className="border-none"
                   >
                     {item.name}
-                  </MyLink>
+                  </NavLink>
                 </Disclosure.Button>
               ))}
             </div>
