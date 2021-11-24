@@ -31,9 +31,6 @@ a {
   p {
     @apply text-gray-600 text-sm;
   }
-  /* ul {
-    @apply list-disc 
-  } */
 }
 
 @layer utilities {
