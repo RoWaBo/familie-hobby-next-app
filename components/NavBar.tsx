@@ -30,7 +30,7 @@ const NavBar = () => {
                 <div className="flex-shrink-0 flex items-center h-full">
                   <NavLink href="/" className="border-none h-full">
                     <ScissorsIcon height={35} className="text-primary mr-3" />
-                    <h1 className="text-lg text-gray-600">Kreativ Familie Hobby</h1>
+                    <h1 className="text-lg text-gray-600">Kreativ Familiehobby</h1>
                   </NavLink>
                 </div>
                 <div className="hidden sm:block ml-auto">
