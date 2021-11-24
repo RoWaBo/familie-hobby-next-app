@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import MyLink from "../components/MyLink";
+import MyButton from "../components/MyButton";
 import MainLayout from "../components/MainLayout";
 import kidsPlayingImg from "../public/assets/kids_playing.jpg";
 import graeskarImg from "../public/assets/graeskar_cropped.jpg";
@@ -35,13 +36,9 @@ const Home: NextPage = () => {
             kreaindhold.
           </p>
           <div className="mt-8 md:mt-11 text-center sm:text-left">
-            <Link href={`/produkter`}>
-              <a>
-                <button className="bg-purple-600 hover:bg-purple-700 transition p-4 sm:p-5 rounded-lg text-base sm:text-xl text-white font-medium shadow">
-                  Se vores udvalg af kreakasser
-                </button>
-              </a>
-            </Link>
+            <MyLink href={`/produkter`}>
+              <MyButton> Se vores udvalg af kreakasser </MyButton>
+            </MyLink>
           </div>
         </div>
         {/* desktop image visible ABOVE md */}
