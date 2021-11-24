@@ -62,7 +62,7 @@ const Home: NextPage = () => {
             </span>
           </h1>
           <p className="text-base sm:text-lg mt-4 md:mt-6">
-            Tag naturen med ind i stuen I vores naturtema glædes vi over de smukke farver, former og materialer, som naturen er så fuld af.
+            Tag naturen med ind i stuen. I vores naturtema glædes vi over de smukke farver, former og materialer, som naturen er så fuld af.
           </p>
           {/* mobile image visible BELOW md-breakpoint */}
           <div className="relative md:hidden w-full h-72 sm:h-80 mt-6 shadow-md rounded-lg overflow-hidden">
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
               src={graeskarImg}
               alt="græskar"
               layout="fill"
-              quality={85}
+              quality={70}
               priority
               className="object-center object-cover"
             />
@@ -87,7 +87,7 @@ const Home: NextPage = () => {
             src={graeskarImg}
             alt="græskar"
             layout="fill"
-            quality={100}
+            quality={85}
             priority
             className="object-center object-cover"
           />
