@@ -10,8 +10,8 @@ const listItems = [
 
 const Footer: React.FC = () => {
   return (
-    <MainLayout>
-      <footer>
+    <MainLayout className="relative bottom-0">
+      <footer className="m-auto">
         <ul className="text-sm text-gray-500 md:flex justify-between">
           {listItems.map((item) => ( <>
             <li>{item}</li>
