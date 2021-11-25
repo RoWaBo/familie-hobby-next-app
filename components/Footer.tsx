@@ -1,26 +1,31 @@
-import MainLayout from "./MainLayout";
-import { IdentificationIcon } from "@heroicons/react/outline";
-
-const listItems = [
-  "Mathilde Mei Jørgensen",
-  `${<IdentificationIcon />} CVR 30640055`,
-  "Kreativ familiehobby",
-  "i naturskønne Kattinge, Lejre Kommune",
-];
+import { IdentificationIcon, UserCircleIcon, HomeIcon, GlobeIcon } from "@heroicons/react/outline";
 
 const Footer: React.FC = () => {
   return (
-    <MainLayout className="relative bottom-0">
-      <footer className="m-auto">
-        <ul className="text-sm text-gray-500 md:flex justify-between">
-          {listItems.map((item) => ( <>
-            <li>{item}</li>
-            {console.log(item)}
-            </>
-          ))}
-        </ul>
-      </footer>
-    </MainLayout>
+    <footer className="w-fit m-auto sm:w-full p-4 pb-8">
+      <ul className="text-xs text-gray-400 flex flex-col sm:justify-around sm:flex-row">
+        <div className="mr-8 md:mr-[10%]">
+          <li className="flex items-start">
+            <UserCircleIcon height={15} width={15} className="mr-2" />
+            Mathilde Mei Jørgensen
+          </li>
+          <li className="flex items-start mt-3">
+            <IdentificationIcon height={15} width={15} className="mr-2" />
+            CVR 30640055
+          </li>
+        </div>
+        <div>
+          <li className="flex items-start mt-3 sm:mt-0">
+            <HomeIcon height={15} width={15} className="mr-2" />
+            Kreativ Familiehobby
+          </li>
+          <li className="flex items-start mt-3">
+            <GlobeIcon height={15} width={15} className="mr-2" />
+            i det naturskønne Kattinge, Lejre Kommune
+          </li>
+        </div>
+      </ul>
+    </footer>
   );
 };
 
