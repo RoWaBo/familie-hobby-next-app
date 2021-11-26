@@ -1,26 +1,35 @@
-import { marked } from 'marked';
+import { marked } from "marked";
 // import DOMPurify from 'dompurify'
 
 interface FormatRichTextProps {
-    textLimit?: number
-    className?: string
+  textLimit?: number;
+  className?: string;
 }
 
-const FormatRichText: React.FC<FormatRichTextProps> = ({ textLimit, className, children  }) => {
-
-    const description = textLimit ? `${children?.substring(0, textLimit)}...` : children
+const FormatRichText: React.FC<FormatRichTextProps> = ({
+  textLimit,
+  className,
+  children,
+}) => {
     
-    // const cleanedHTML = DOMPurify.sanitize(description)
+  const description = textLimit
+    ? `${children?.substring(0, textLimit)}...`
+    : children;
 
-    return ( 
-        <div className={`${className} format-rich-text`}
-            dangerouslySetInnerHTML={
-                {
-                __html: marked(description)
-                }
-            }
+  // const cleanedHTML = DOMPurify.sanitize(description)
+
+  return (
+    <>
+      {description && (
+        <div
+          className={`${className} format-rich-text`}
+          dangerouslySetInnerHTML={{
+            __html: marked(description),
+          }}
         />
-     );
-}
+      )}
+    </>
+  );
+};
 
 export default FormatRichText;
