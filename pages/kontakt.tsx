@@ -1,5 +1,6 @@
 import MainLayout from "../components/MainLayout";
 import { PhoneIcon, MailIcon } from "@heroicons/react/outline";
+import Heading from "../components/Heading";
 
 interface ContactProps {}
 
@@ -7,9 +8,7 @@ const Contact: React.FunctionComponent<ContactProps> = () => {
   return (
     <MainLayout>
       <article className="max-w-lg m-auto">
-        <h1 className="text-2xl sm:text-4xl leading-9 sm:leading-[3.5rem] font-normal">
-          <span className="text-purple-500 font-medium">Kontakt</span>
-        </h1>
+        <Heading>Kontakt</Heading>
         <p className="text-base sm:text-lg mt-4 md:mt-6 flex-1 md:mr-8">
           Hvis du har ris eller ros, skøre ideer og vanvittigt indfald, så tag
           endelig kontakt!

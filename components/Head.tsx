@@ -4,8 +4,8 @@ const Head: React.FC = () => {
     return ( 
         <NextHead>
             <title>Kreativ Familiehobby</title>
-            <link rel="icon" href={"/scissorIcon.svg"} />
-            <meta content="inspiration til hyggelige og kreative projekter/produkter" />   
+            <link rel="logo" href={"/scissorIcon.svg"} />
+            <meta content="få inspiration til hyggelige og kreative projekter/produkter" />   
         </NextHead>
      );
 }
