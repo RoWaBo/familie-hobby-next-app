@@ -5,6 +5,7 @@ import MainLayout from "../../components/MainLayout";
 import Product from "../../types/Product";
 import Image from "next/image";
 import FormatRichText from "../../components/FormatRichText";
+import Heading from "../../components/Heading";
 
 interface ProductProps {
   product: Entry<Product>;
@@ -24,7 +25,7 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
             alt={product.fields.billede.fields.title}
             layout="fill"
             quality={1}
-            className="object-center object-cover rounded-lg blur-md opacity-60"
+            className="object-center object-cover rounded-lg blur-none sm:blur-md opacity-60"
           />
 
           <div className="relative m-auto w-full sm:top-4 sm:w-[400px] xsm:h-[400px] h-full bg-gray-200 rounded-lg shadow-lg">
@@ -40,10 +41,10 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
         </div>
         <div className="max-w-xl m-auto">
           <div className="flex items-baseline">
-            <h1 className="mt-7 mb-4 sm:mt-14 capitalize text-2xl sm:text-3xl">
+            <Heading className="mt-7 mb-4 sm:mt-14">
               {product.fields.overskrift}
-            </h1>
-            <p className="ml-auto text-gray-500">
+            </Heading>
+            <p className="ml-auto text-gray-400">
               {product.sys.createdAt.substring(0, 10)}
             </p>
           </div>
@@ -80,17 +81,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const paths = products.map((product) => ({
       params: { id: product.sys.id },
     }));
-    
+
     return {
       paths,
       fallback: true,
     };
   }
   return {
-    paths: [
-      { params: { id: "not found" } },
-    ],
-    fallback: false
+    paths: [{ params: { id: "not found" } }],
+    fallback: false,
   };
 };
 

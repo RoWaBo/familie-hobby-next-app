@@ -50,7 +50,7 @@ const Products: React.FunctionComponent<ProductsProps> = ({
                   <div className="px-4 pb-4">
                     <div className="flex items-baseline mt-4">
                       <h2>{product.fields.overskrift}</h2>
-                      <p className="ml-auto text-gray-500">
+                      <p className="ml-auto text-gray-400">
                         {product.sys.createdAt.substring(0, 10)}
                       </p>
                     </div>
