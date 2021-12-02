@@ -43,7 +43,7 @@ const Products: React.FunctionComponent<ProductsProps> = ({
                       src={"https:" + product.fields.billede.fields.file.url}
                       alt={product.fields.billede.fields.title}
                       layout="fill"
-                      quality="10"
+                      quality={5}
                       className="object-center object-cover"
                     />
                   </div>

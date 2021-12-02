@@ -70,7 +70,7 @@ const Home: NextPage = () => {
               src={graeskarImg}
               alt="græskar"
               layout="fill"
-              quality={70}
+              quality={50}
               priority
               className="object-center object-cover"
             />
@@ -87,7 +87,7 @@ const Home: NextPage = () => {
             src={graeskarImg}
             alt="græskar"
             layout="fill"
-            quality={85}
+            quality={80}
             priority
             className="object-center object-cover"
           />
