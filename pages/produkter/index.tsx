@@ -6,14 +6,14 @@ import FormatRichText from "../../components/FormatRichText";
 import Image from "next/image";
 
 interface ProductsProps {
-  contentfulEntires: ContentfulCollection<Entry<Product>>;
+  contentfulEntries: ContentfulCollection<Entry<Product>>;
 }
 
 const Products: React.FunctionComponent<ProductsProps> = ({
-  contentfulEntires,
+  contentfulEntries,
 }) => {
   // FILTERING ENTRIES FROM CONTENTFUL
-  const products = contentfulEntires.items.filter(
+  const products = contentfulEntries.items.filter(
     (item) => item.sys.contentType.sys.id === "product"
   );
   // const standardProducts = products.filter(
@@ -78,11 +78,11 @@ export const getStaticProps: GetStaticProps = async () => {
       accessToken: process.env.CONTENTFUL_TOKEN,
     });
 
-    const contentfulEntires = await client.getEntries();
+    const contentfulEntries = await client.getEntries();
 
     return {
       props: {
-        contentfulEntires,
+        contentfulEntries,
       },
       revalidate: 60,
     };

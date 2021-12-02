@@ -72,9 +72,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
       accessToken: process.env.CONTENTFUL_TOKEN,
     });
 
-    const contentfulEntires = await client.getEntries();
+    const contentfulEntries = await client.getEntries();
 
-    const products = contentfulEntires.items.filter(
+    const products = contentfulEntries.items.filter(
       (item) => item.sys.contentType.sys.id === "product"
     );
 
