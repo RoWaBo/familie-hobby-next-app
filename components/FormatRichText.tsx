@@ -11,20 +11,20 @@ const FormatRichText: React.FC<FormatRichTextProps> = ({
   className,
   children,
 }) => {
-    
-  const description = textLimit
-    ? `${children?.substring(0, textLimit)}...`
-    : children;
 
-  // const cleanedHTML = DOMPurify.sanitize(description)
+  let descriptionToString = children?.toString()
+
+  descriptionToString = textLimit
+    ? `${descriptionToString?.substring(0, textLimit)}...`
+    : descriptionToString;
 
   return (
     <>
-      {description && (
+      {descriptionToString && (
         <div
           className={`${className} format-rich-text`}
           dangerouslySetInnerHTML={{
-            __html: marked(description),
+            __html: marked(descriptionToString),
           }}
         />
       )}
