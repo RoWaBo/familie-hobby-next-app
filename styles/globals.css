@@ -31,6 +31,9 @@ a {
   p {
     @apply text-gray-600 text-base leading-relaxed;
   }
+  #__next {
+    @apply flex flex-col h-screen;
+  }
 }
 
 @layer utilities {

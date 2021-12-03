@@ -2,7 +2,7 @@ import { IdentificationIcon, UserCircleIcon, HomeIcon, GlobeIcon } from "@heroic
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-fit m-auto sm:w-full px-4 py-8 sm:py-10 sm:px-8 lg:max-w-7xl lg:mx-auto lg:px-8">
+    <footer className="w-fit mt-auto mx-auto sm:w-full px-4 py-8 sm:py-10 sm:px-8 lg:max-w-7xl lg:mx-auto lg:px-8 border-t border-gray-100">
       <ul className="text-xs text-gray-400 flex flex-col sm:justify-around sm:flex-row">
         <li className="mr-8 md:mr-[10%]">
           <div className="flex items-start">
